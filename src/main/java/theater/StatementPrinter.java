@@ -11,7 +11,7 @@ public class StatementPrinter {
     public static final int TRAGEDY_AMOUNT = 40000;
     public static final int TRAGEDY_CAPACITY = 1000;
     public static final int EXPECTED_EMPTY = 30;
-    public static final int TOTAL = 100;
+    public static final int TOTAL_COST = 100;
 
     private Invoice invoice;
     private Map<String, Play> plays;
@@ -67,10 +67,10 @@ public class StatementPrinter {
 
             // print line for this order
             result.append(String.format("  %s: %s (%s seats)%n", play.getName(),
-                    frmt.format(thisAmount / TOTAL), p.getAudience()));
+                    frmt.format(thisAmount / TOTAL_COST), p.getAudience()));
             totalAmount += thisAmount;
         }
-        result.append(String.format("Amount owed is %s%n", frmt.format(totalAmount / TOTAL)));
+        result.append(String.format("Amount owed is %s%n", frmt.format(totalAmount / TOTAL_COST)));
         result.append(String.format("You earned %s credits%n", volumeCredits));
         return result.toString();
     }
